@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+    <title>Student Preformace</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/check">Check Preformace</a></li>
+        </ul>
+    </nav>
+    <div class="maincontainer">
+        <form action="{{url_for('putmarks')}}" method="post">
+            <div>
+                <h3>Gender: </h3><label for="Male">Male: </label><input type="radio" name="Gender" id="Male" value="1">
+                <label for="Female">Female: </label><input type="radio" name="Gender" id="Female" value="0">
+            </div>
+            <div>
+                <h3>Age:</h3> <input name="Age" id="Age" type="range" min="0" max="25" value="0" step="1" list="ticks" oninput="Output1.value = Age.value" />
+                <output id="Output1" class="output">0</output>
+            </div>
+            <div>
+                <h3>Mother Job:</h3> <select name="MJOB" id="">
+                    <option value="0">At Home</option>
+                    <option value="1">Health</option>
+                    <option value="4">Teacher</option>
+                    <option value="3">Services</option>
+                    <option value="2">Other</option>
+                </select>
+            </div>
+            <div>
+                <h3> <label for="FJOB">Father Job:</label></h3> <select name="FJOB" id="">
+                    <option value="0">At Home</option>
+                    <option value="1">Health</option>
+                    <option value="4">Teacher</option>
+                    <option value="3">Services</option>
+                    <option value="2">Other</option>
+                </select>
+            </div>
+            <div>
+                <h3>Gardian:</h3> <select name="Gardian" id="">
+                    <option value="1">Father</option>
+                    <option value="0">Mohter</option>
+                    <option value="2">Other</option>
+                </select>
+            </div>
+            <div>
+                <h3>Travel Time: </h3><input name="TravelTime" id="TravelTime" type="range" min="0" value="0" max="3" step="1" list="ticks" oninput="Output2.value = TravelTime.value" />
+                <output id="Output2" class="output">0</output><span>hrs</span>
+            </div>
+            <div>
+                <h3>Study Time: </h3><input name="StudyTime" id="StudyTime" type="range" min="0" value="0" max="4" step="1" list="ticks" oninput="Output.value = StudyTime.value" />
+                <output id="Output" class="output">0</output>
+            </div>
+            <div>
+                <h3>Internet:</h3>
+                <label for="yes">yes: </label><input type="radio" name="Myinternet" id="yes" value="1"><label for="no">no: </label><input type="radio" name="Myinternet" id="no" value="0">
+            </div>
+            <div>
+                <h3>Free Time: </h3><input name="Freetime" id="Freetime" type="range" min="0" value="0" max="5" step="1" list="ticks" oninput="Output3.value = Freetime.value" />
+                <output id="Output3" class="output">0</output>
+            </div>
+            <div>
+                <h3>Go Out:</h3> <input name="GoOut" id="GoOut" type="range" min="0" value="0" max="5" step="1" list="ticks" oninput="Output4.value = GoOut.value" />
+                <output id="Output4" class="output">0</output>
+            </div>
+            <div>
+                <h3>Health:</h3> <input name="Health" id="Health" type="range" min="0" value="0" max="5" step="1" list="ticks" oninput="Output5.value = Health.value" />
+                <output id="Output5" class="output">0</output>
+            </div>
+            <div>
+                <h3>Absence:</h3> <input type="number" name="Absence" id="Absence" min="0" max="50" placeholder="Between 0-50">
+            </div>
+            <div>
+                <h3>Grade 1: </h3><input type="number" name="Grade1" id="Grade1" min="0" max="20" placeholder="Between 0-20">
+            </div>
+            <div>
+                <h3>Grade 2:</h3> <input type="number" name="Grade2" id="Grade2" min="0" max="20" placeholder="Between 0-20">
+            </div>
+            <div>
+                <button type="submit"><span>Check</span></button>
+            </div>
+        </form>
+    </div>
+    <div style="    display: flex;
+    margin-left: 66px;
+    margin-top: 37px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    border: 2px solid white;
+    width: 435px;
+    font-size: 1.5rem;">
+        <span>you may score: </span><span>{{percentage}}%</span>
+    </div>
+</body>
+
+</html>
